@@ -1,0 +1,9 @@
+{
+  "name": "cypress-challenges",
+  "version": "1.0.0",
+  "description": "This folder contains the Cyppress challenges from the automation training",
+  "main": "index.js",
+  "repository": "https://github.com/GadeaFdez/Automation-training-",
+  "author": "Gadea Fdez",
+  "license": "MIT"
+}
