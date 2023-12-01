@@ -1,0 +1,9 @@
+{
+  "name": "sentima-ui-testing",
+  "version": "1.0.0",
+  "description": "Testing sentima website for practice ",
+  "main": "index.js",
+  "repository": "https://github.com/GadeaFdez/Automation-training-",
+  "author": "Gadea",
+  "license": "MIT"
+}
