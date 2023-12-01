@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "https://github.com/GadeaFdez/Automation-training-",
   "author": "Gadea Fdez",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^13.6.0"
+  }
 }
