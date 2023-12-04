@@ -33,7 +33,7 @@ describe('Check adding new user from Practice Form page', () => {
     })
   
   
-    it.only('Should find and fill up all text-boxes and submit', ()=> {
+    it('Should find and fill up all text-boxes and submit', ()=> {
       studentForm.addStudentBasicInformation(firstName, lastName, phoneNumber, birthdayMonth, birthdayYear)
       studentForm.fillStudentEmail(userEmail);
       studentForm.fillStudentSubject(subject); 
