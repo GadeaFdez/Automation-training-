@@ -1,19 +1,19 @@
 //Contains the functions 
-import * as selectors from './selectors.js';
+import * as selectors from './selectors';
 export const fillStudentName = (nameInput: string) => {
     cy.get(selectors.STUDENT_NAME_INPUT_TEXT).type(nameInput); 
 };
 export const fillStudentEmail = (emailInput: string ) => {
     cy.get(selectors.STUDENT_EMAIL_INPUT_TEXT).type(emailInput); 
 };
-export const fillStudentCurrentAddress = (CurrentAddressInput: string) => {
-    cy.get(selectors.STUDENT_CURRENT_ADDRESS_INPUT_TEXT).type(CurrentAddressInput); 
+export const fillStudentCurrentAddress = (currentAddressInput: string) => {
+    cy.get(selectors.STUDENT_CURRENT_ADDRESS_INPUT_TEXT).type(currentAddressInput); 
 };
 export const fillStudentPermanentAddress= (permanentAddressInput: string) => {
     cy.get(selectors.STUDENT_PERMANENT_ADDRESS_INPUT_TEXT).type(permanentAddressInput); 
 };
 export const submitStudent = () => {
-    cy.get(selectors.SUBMIT).click(); 
+    cy.get(selectors.SUBMIT).click({force: true}); 
 };
 export const assertStudentName = (nameOutput: string) => {
     cy.get(selectors.STUDENT_NAME_OUTPUT_TEXT).contains (nameOutput); 
@@ -46,13 +46,15 @@ export const fillStudentBirthday = (birthdayMonth: string, birthdayYear: string)
     cy.get(selectors.STUDENT_BIRTHDAY_YEAR_INPUT).select(birthdayYear); 
     cy.get(selectors.STUDENT_BIRTHDAY_DAY_INPUT).click(); 
 };
-// export const addStudentBasicInformation = () => {
-//     fillStudentFirstName(),
-//     fillStudentLastName(),
-//     fillStudentGender(),
-//     fillStudentPhoneNumber(),
-//     fillStudentBirthday(, ), 
-// }; 
+
+export const addStudentBasicInformation = (firstName: string, lastName: string, phoneNumber: string, birthdayMonth: string, birthdayYear: string) => {
+    fillStudentFirstName(firstName),
+    fillStudentLastName(lastName),
+    fillStudentGender(),
+    fillStudentPhoneNumber(phoneNumber),
+    fillStudentBirthday(birthdayMonth, birthdayYear)
+}; 
+
 export const fillStudentSubject = (subject: string) => {
     cy.get(selectors.STUDENT_SUBJECT_INPUT).type(subject);
     cy.get(selectors.STUDENT_SUBJECT_SELECTION_INPUT).click(); 
@@ -60,17 +62,24 @@ export const fillStudentSubject = (subject: string) => {
 export const fillStudentHobbies = () => {
     cy.get(selectors.STUDENT_HOBBIES_INPUT).check({force: true});
 };
-export const fillStudentImage = (image) => {
-    cy.get(selectors.STUDENT_IMAGE_INPUT).attachFile(image);
+export const fillStudentImage = (image: any) => {
+    cy.get(selectors.STUDENT_IMAGE_INPUT).selectFile(image);
 };
 export const fillStudentState = () => {
-    cy.get(selectors.STUDENT_STATE_INPUT).click();
+    cy.get(selectors.STUDENT_STATE_INPUT).click({force: true});
     cy.get(selectors.STUDENT_STATE_SELECTION_INPUT).click();
 };
 export const fillStudentCity = () => {
-    cy.get(selectors.STUDENT_CITY_INPUT).click(); 
-    cy.get(selectors.STUDENT_CITY_SELECTION_INPUT).click(); 
+    cy.get(selectors.STUDENT_CITY_INPUT).click({force: true}); 
+    cy.get(selectors.STUDENT_CITY_SELECTION_INPUT).click({force: true}); 
 };
+
+export const fillStudentFullAddress = (currentAddressInput: string)=> {
+    fillStudentCurrentAddress(currentAddressInput)
+    fillStudentState(), 
+    fillStudentCity()
+}; 
+
 export const assertModalView = () => {
     cy.get(selectors.OUTPUT_MODAL).should('be.visible');
 };
@@ -83,7 +92,7 @@ export const assertFullName = (firstName: string, lastName: string) => {
 export const assertStudentEmailAddress = (userEmail: string) => {
     cy.get(selectors.STUDENT_EMAIL_ADDRESS_OUTPUT).should('contain', userEmail);
 };
-export const assertStudentGender= (userGender) => {
+export const assertStudentGender= (userGender: string) => {
     cy.get(selectors.STUDENT_GENDER_OUTPUT).should('contain', userGender); 
 };
 export const assertStudentPhoneNumber = (phoneNumber: string) => {
@@ -98,7 +107,7 @@ export const assertStudentSubject = (subject: string) => {
 export const assertStudentHobbies = (hobby: string) => {
     cy.get(selectors.STUDENT_HOBBIES_OUTPUT).should('contain', hobby); 
 };
-export const assertStudentImage = (imageName) => {
+export const assertStudentImage = (imageName: any) => {
     cy.get(selectors.STUDENT_IMAGE_OUTPUT).should('contain', imageName); 
 };
 export const assertStudentAddress = (address: string) => {
