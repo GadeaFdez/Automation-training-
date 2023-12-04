@@ -7,7 +7,6 @@ describe('Adds a product to the cart and checks out', () => {
       console.log('Cypress detected uncaught exception: ', err);
       return false
     }); 
-
   })
   
   
