@@ -1,6 +1,6 @@
 import * as studentForm from '../page-object-model/student-form';
-import 'cypress-file-upload';
-//import image from '../images/Townhall2.jpeg'
+import image from '../images/headshots.jpeg'
+
 describe('Check adding new user from Practice Form page', () => {
   const firstName: string  = 'Gadea';
   const lastName: string = 'Fernandez'; 
@@ -13,10 +13,11 @@ describe('Check adding new user from Practice Form page', () => {
   const subject: string = 'Maths';  
   const hobby: string = 'Sports'; 
   const address: string = 'SW6 2PN'; 
-  const imageName: string = 'Townhall2.jpeg';
+  const imageName: string = 'headshots.jpeg';
   const state: string = 'NCR'; 
   const city: string = 'Delhi'
   const successMessage: string = 'Thanks for submitting the form'; 
+
     beforeEach(() => {
       Cypress.on('uncaught:exception', (err) => {
         // returning false here prevents Cypress from
@@ -32,20 +33,13 @@ describe('Check adding new user from Practice Form page', () => {
     })
   
   
-    it('Should find and fill up all text-boxes and submit', ()=> {
-    
-      studentForm.fillStudentFirstName(firstName);
-      studentForm.fillStudentLastName(lastName);
+    it.only('Should find and fill up all text-boxes and submit', ()=> {
+      studentForm.addStudentBasicInformation(firstName, lastName, phoneNumber, birthdayMonth, birthdayYear)
       studentForm.fillStudentEmail(userEmail);
-      studentForm.fillStudentGender();
-      studentForm.fillStudentPhoneNumber(phoneNumber);
-      studentForm.fillStudentBirthday(birthdayMonth, birthdayYear);
       studentForm.fillStudentSubject(subject); 
       studentForm.fillStudentHobbies(); 
       //studentForm.fillStudentImage(image); 
-      studentForm.fillStudentCurrentAddress(address); 
-      studentForm.fillStudentState(); 
-      studentForm.fillStudentCity(); 
+      studentForm.fillStudentFullAddress(address)
       studentForm.submitStudent(); 
     
     })
@@ -53,18 +47,13 @@ describe('Check adding new user from Practice Form page', () => {
   
        
      it('should assert users information', () => {
-      studentForm.fillStudentFirstName(firstName); 
-      studentForm.fillStudentLastName(lastName); 
+      studentForm.addStudentBasicInformation(firstName, lastName, phoneNumber, birthdayMonth, birthdayYear)
       studentForm.fillStudentEmail(userEmail);
-      studentForm.fillStudentGender();
-      studentForm.fillStudentPhoneNumber(phoneNumber); 
-      studentForm.fillStudentBirthday(birthdayMonth, birthdayYear); 
       studentForm.fillStudentSubject(subject); 
       studentForm.fillStudentHobbies(); 
       //studentForm.fillStudentImage(image); 
-      studentForm.fillStudentCurrentAddress(address); 
-      studentForm.fillStudentState(); 
-      studentForm.fillStudentCity(); 
+      studentForm.fillStudentFullAddress(address)
+  
       studentForm.submitStudent();       
      //Assert a modal is displayed after clicking on the submit button
     
