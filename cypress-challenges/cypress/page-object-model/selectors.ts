@@ -37,3 +37,29 @@ export const STUDENT_HOBBIES_OUTPUT = 'table > tbody > :nth-child(7) > :nth-chil
 export const STUDENT_IMAGE_OUTPUT = 'table > tbody > :nth-child(8) > :nth-child(2)';
 export const STUDENT_ADDRESS_OUTPUT = 'table > tbody > :nth-child(9) > :nth-child(2)'; 
 export const STUDENT_STATE_CITY_OUTPUT = 'table > tbody > :nth-child(10) > :nth-child(2)'; 
+
+
+//selectors for the seller-signup-page 
+
+export const CATEGORY_INPUT_FIELD = '#signup-choose-category'; 
+export const DOG_WALKING_CATEGORY = '[data-cy="autocomplete-result-1"]'; 
+export const SELLER_GET_STARTED_BUTTON = '[data-cy="seller-signup-splash-submit"]'; 
+
+export const SELLER_LOCATION_INPUT = '[data-cy="seller-signup-form-location"]' ;
+export const DUBLIN_LOCATION_DROPDOWN = '[data-cy="autocomplete-result-0"]' ;
+export const SELLER_SUBMIT_LOCATION = '[data-cy="seller-signup-form-location-next"]' ;
+
+export const SELLER_NAME = '[data-cy="seller-signup-form-profile-name"]'; 
+export const SELLER_COMPANY_NAME = '[data-cy= "seller-signup-form-profile-company-name"]'; 
+export const SELLER_COMPANY_EMAIL = '[data-cy="seller-signup-form-profile-email"]'; 
+export const SELLER_WEBSITE_YES = '[data-testid="company-segmentation-container"] > :nth-child(1) > .tw-gap-4 > :nth-child(1)';  
+export const SELLER_EMPLOYEES_2_10 = ':nth-child(3) > .tw-gap-4 > :nth-child(2)'; 
+export const SELLER_SUBMIT_PII_DATA = '[data-cy="seller-signup-form-profile-next"]'; 
+
+export const SERVICE_SUGGESTION_CROSS_MAXIMISE_LEADS_PAGE = '.MuiSvgIcon-root'; 
+export const SERVICE_SEARCH_INPUT_MAXIMISE_LEADS_PAGE = '[data-cy="seller-signup-lead-settings-category-search"]'; 
+export const SERVICE_SELECTION_CATEGORY_MAXIMISE_LEADS_PAGE = '[data-cy="autocomplete-result-0"]'; 
+export const NEW_SERVICE_TAG_MAXIMISE_LEADS_PAGE = ':nth-child(4) > [data-cy="tag-component"] > .tw-leading-4'; 
+export const SEE_LEADS_MAXIMISE_LEADS_PAGE = '[data-cy="seller-signup-form-profile-leads"]'; 
+
+export const LEADS_NAVBAR = '#navbarSupportedContent'; 
