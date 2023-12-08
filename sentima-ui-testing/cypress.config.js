@@ -9,6 +9,7 @@ module.exports = defineConfig({
   taskTimeout: 1000,
   scrollBehavior: "center",
   fixtures: true,
+  experimentalWebKitSupport: true,
   retries: {
     runMode: 3,
     openMode: 0,

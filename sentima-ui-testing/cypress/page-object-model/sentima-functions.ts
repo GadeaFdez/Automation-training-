@@ -1,17 +1,39 @@
 import * as selectors from './selectors'; 
 
-export const addDressToCart = (dressName: string) => {
-    cy.get(selectors.SOFIA_DRESS_HOMEPAGE).click(); // chooses a dress 
+let nameDressHomepage: string; 
+let priceSaleHomepage:string;  
+
+export const getsItemNameHomepage= () => {
+    cy.get(selectors.DRESS_NAME_CARD_HOMEPAGE).eq(2).find(selectors.DRESS_NAME_ANCHOR_HOMEPAGE).then(($text) => { 
+        nameDressHomepage = $text.text()
+    })
+}
+
+export const getsItemPriceHomepage= () => {
+    cy.get(selectors.DRESS_PRICE_HOMEPAGE).eq(2).then(($text) => { 
+        priceSaleHomepage = $text.text()
+    })
+}
+
+export const addDressToCart = () => {
+    cy.get(selectors.SOFIA_DRESS_HOMEPAGE).click();
     cy.get(selectors.MEDIUM_SIZE).click(); // chooses a size 
     cy.get(selectors.ADD_TO_CART).click(); //adds choice to the cart
-    cy.get(selectors.CART_LIST).should('contain', dressName); //asserts that the dress has been added to the cart 
 }
+
+export const assertDressInCart = () => {
+    cy.get(selectors.CART_LIST).then(($text)=> {
+        const nameDressCart = $text.text()
+        expect(nameDressHomepage).contains(nameDressCart);
+    })
+}  
 
 export const dismissUpsell = () => { 
     cy.get(selectors.UPSELL_MODAL_CONTINUE).click(); //continues to checkout from upsell modal 
 
 }
-export const continueToCart = () => {
+
+export const continueFromCart = () => {
     cy.get(selectors.CART_CHECKOUT).click(); //continues to cart from cart 
     dismissUpsell(); 
 }
@@ -33,15 +55,21 @@ export const fillPiiData = (email: string ,country: string , firstName: string, 
     cy.get(selectors.FIRST_NAME_INPUT_CHECKOUT).type(firstName); 
     cy.get(selectors.LAST_NAME_INPUT_CHECKOUT).type(lastName); 
     cy.get(selectors.ADDRESS_DROPDOWN_CHECKOUT).type(addressInput); 
-    cy.wait(1000); 
     cy.get(selectors.FULL_ADDRESS_CHECKOUT).click();
 }
 
-export const getsItemPriceHomepage = () => {
-    cy.get(selectors.SOFIA_DRESS_PRICE).invoke('text').as('price').then(console.warn);//aims to get the price of the item as saves it as price 
+export const assertsCorrectName = () => {
+    cy.get(selectors.DRESS_NAME_CHECKOUT_PAGE).then(($text) => { 
+        const nameDressCheckout = $text.text()
+        expect(nameDressHomepage).contains(nameDressCheckout);
+        })
 }
 
 export const assertsCorrectPrice = () => {
-cy.get(selectors.TOTAL_PRICE).invoke('text').should ('eq', '@price'); 
+    cy.get(selectors.TOTAL_PRICE).then(($text)=> {
+        const totalPrice = $text.text()
+        expect(priceSaleHomepage).contains(totalPrice);
+    })
+
 
 }
