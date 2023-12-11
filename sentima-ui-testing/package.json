@@ -4,7 +4,8 @@
   "description": "Testing sentima website for practice ",
   "scripts": {
     "mobile": "cypress run --spec cypress/e2e/mobile-tests.cy.ts",
-    "lint": "yarn prettier --write ."
+    "lint": "yarn prettier --write .",
+    "safari": "npx cypress open --browser webkit"
   },
   "main": "index.js",
   "repository": "https://github.com/GadeaFdez/Automation-training-",

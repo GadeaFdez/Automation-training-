@@ -1,10 +1,8 @@
+# Automation-training-
+
 # Setup
 
-To clone this project use:
-
-`git clone git@github.com:GadeaFdez/Automation-training-.git`
-
-Otherwise follow these steps:
+To clone this project follow these steps:
 
 1. Install [Visual Studio Code](https://code.visualstudio.com)
 2. Install [Git](https://git-scm.com/download/win)
@@ -19,4 +17,4 @@ Otherwise follow these steps:
 
 ## Run Safari tests
 
-`npx cypress open --browser webkit`
+`npx cypress open --browser webkit` or user `yarn run safari`
