@@ -14,11 +14,11 @@ module.exports = defineConfig({
     runMode: 3,
     openMode: 0,
   },
-  
+
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    baseUrl: 'https://sentimaco.com',
+    baseUrl: "https://sentimaco.com",
   },
 });
