@@ -1,4 +1,4 @@
-# Automation-training-
+# Sentima UI project
 
 # Setup
 
