@@ -6,7 +6,7 @@ const firstName: string = 'ghj';
 const lastName: string = 'fn';
 const addressInput: string = '241';
 const payNow: string = 'Pay now';
-const dressSelected: number = 0; 
+const dressSelected: number = 0;
 
 describe('Adds a product to the cart and checks out', () => {
   beforeEach(() => {
@@ -18,7 +18,7 @@ describe('Adds a product to the cart and checks out', () => {
     sentima.addDressToCart(dressSelected);
     sentima.assertDressInCart();
     sentima.continueFromCart();
-    sentima.assertsCheckoutPage(payNow); 
+    sentima.assertsCheckoutPage(payNow);
   });
 
   it('fills up basic details in cart', () => {

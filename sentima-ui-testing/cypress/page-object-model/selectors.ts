@@ -1,4 +1,4 @@
-export const CHOSEN_DRESS_HOMEPAGE ='.grid__item';
+export const CHOSEN_DRESS_HOMEPAGE = '.grid__item';
 export const MEDIUM_SIZE = '[data-option-value="M"]';
 export const ADD_TO_CART = '.product-form__submit';
 export const CART_LIST = '.upcart-product-title-link';

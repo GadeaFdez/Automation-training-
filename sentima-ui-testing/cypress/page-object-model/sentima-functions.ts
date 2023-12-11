@@ -21,9 +21,9 @@ export const getsItemPriceHomepage = (dressSelected: number) => {
 };
 
 export const addDressToCart = (dressSelected: number) => {
-cy.get(selectors.CHOSEN_DRESS_HOMEPAGE).eq(dressSelected).click(); 
+  cy.get(selectors.CHOSEN_DRESS_HOMEPAGE).eq(dressSelected).click();
   cy.get(selectors.MEDIUM_SIZE).click();
-  cy.get(selectors.ADD_TO_CART).click(); 
+  cy.get(selectors.ADD_TO_CART).click();
 };
 
 export const assertDressInCart = () => {
@@ -34,7 +34,7 @@ export const assertDressInCart = () => {
 };
 
 export const dismissUpsell = () => {
-  cy.get(selectors.UPSELL_MODAL_CONTINUE).click(); 
+  cy.get(selectors.UPSELL_MODAL_CONTINUE).click();
 };
 
 export const continueFromCart = () => {
@@ -47,7 +47,7 @@ export const assertsCheckoutPage = (payNow: string) => {
 
 export const removeInsurance = () => {
   cy.get(selectors.CART_LINK).click();
-  cy.get(selectors.REMOVE_INSURANCE).click(); 
+  cy.get(selectors.REMOVE_INSURANCE).click();
   cy.get(selectors.CONTINUE_TO_CHECKOUT).click();
   dismissUpsell();
 };
