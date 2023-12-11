@@ -1,27 +1,28 @@
-import * as selectors from "./selectors";
+import * as selectors from './selectors';
 
 let nameDressHomepage: string;
 let priceSaleHomepage: string;
 
-export const getsItemNameHomepage = () => {
+export const getsItemNameHomepage = (dressSelected: number) => {
   cy.get(selectors.DRESS_NAME_CARD_HOMEPAGE)
-    .eq(2)
+    .eq(dressSelected)
     .find(selectors.DRESS_NAME_ANCHOR_HOMEPAGE)
     .then(($text) => {
       nameDressHomepage = $text.text();
     });
 };
 
-export const getsItemPriceHomepage = () => {
+export const getsItemPriceHomepage = (dressSelected: number) => {
   cy.get(selectors.DRESS_PRICE_HOMEPAGE)
-    .eq(2)
+    .eq(dressSelected)
     .then(($text) => {
       priceSaleHomepage = $text.text();
     });
 };
 
-export const addDressToCart = () => {
-  cy.get(selectors.SOFIA_DRESS_HOMEPAGE).click();
+export const addDressToCart = (dressSelected: number) => {
+cy.get(selectors.CHOSEN_DRESS_HOMEPAGE).eq(dressSelected).click(); 
+  //cy.get(selectors.SOFIA_DRESS_HOMEPAGE).click();
   cy.get(selectors.MEDIUM_SIZE).click(); // chooses a size
   cy.get(selectors.ADD_TO_CART).click(); //adds choice to the cart
 };
@@ -42,7 +43,7 @@ export const continueFromCart = () => {
   dismissUpsell();
 };
 export const assertsCheckoutPage = (payNow: string) => {
-  cy.get(selectors.PAY_NOW_CHECKOUT).should("contain", payNow);
+  cy.get(selectors.PAY_NOW_CHECKOUT).should('contain', payNow);
 };
 
 export const removeInsurance = () => {
