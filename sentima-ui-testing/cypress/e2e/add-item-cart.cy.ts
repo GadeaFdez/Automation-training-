@@ -1,12 +1,13 @@
 import * as sentima from '../page-object-model/sentima-functions';
+import { faker } from '@faker-js/faker';
 
-const email: string = 'gfn@gmail.com';
+const firstName: string = faker.person.firstName(); 
+const lastName: string = faker.person.lastName(); 
+const userEmail =  faker.internet.email({ firstName: firstName, lastName: lastName , provider: 'gmail.com'}); 
 const country: string = 'Spain';
-const firstName: string = 'ghj';
-const lastName: string = 'fn';
 const addressInput: string = '241';
 const payNow: string = 'Pay now';
-const dressSelected: number = 0;
+const dressSelected: number = 1;
 
 describe('Adds a product to the cart and checks out', () => {
   beforeEach(() => {
@@ -24,7 +25,7 @@ describe('Adds a product to the cart and checks out', () => {
   it('fills up basic details in cart', () => {
     sentima.addDressToCart(dressSelected);
     sentima.continueFromCart();
-    sentima.fillPiiData(email, country, firstName, lastName, addressInput);
+    sentima.fillPiiData(userEmail, country, firstName, lastName, addressInput);
   });
 
   it('removes insurance and confirms correct item price ', () => {
