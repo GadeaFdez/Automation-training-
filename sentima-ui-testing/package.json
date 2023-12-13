@@ -2,11 +2,17 @@
   "name": "sentima-ui-testing",
   "version": "1.0.0",
   "description": "Testing sentima website for practice ",
+  "scripts": {
+    "mobile": "cypress run --spec cypress/e2e/mobile-tests.cy.ts",
+    "lint": "yarn prettier --write .",
+    "safari": "npx cypress open --browser webkit"
+  },
   "main": "index.js",
   "repository": "https://github.com/GadeaFdez/Automation-training-",
   "author": "Gadea",
   "license": "MIT",
   "devDependencies": {
+    "@faker-js/faker": "^8.1.0",
     "cypress": "^13.6.0",
     "playwright-webkit": "1.34",
     "prettier": "3.1.1"
